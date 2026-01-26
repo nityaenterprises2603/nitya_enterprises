@@ -606,6 +606,9 @@ Name: ${name}
 Phone: ${phone}
 Business: ${btype}
 City: ${city}
+Pincode:${pincode}
+Area:${area}
+State:${state}
 Requirement: ${req}`;
 
       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -625,8 +628,11 @@ Name: ${name}
 Phone: ${phone}
 Business: ${btype}
 City: ${city}
+Pincode:${pincode}
+Area:${area}
+State:${state}
 Requirement: ${req}`;
-Unloading Address: ${req}`;
+
 
       navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
     }
