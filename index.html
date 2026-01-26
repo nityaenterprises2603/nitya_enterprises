@@ -292,22 +292,29 @@
     </div>
   </section>
 
-  <!-- Scrollable wrapper for Product Gallery (up–down scroll) -->
-  <div style="max-height:500px; overflow-y:auto; padding-right:4px;">
-    <div class="pg-grid">
-      <!-- Product category -->
-      <div class="pg-item" data-category="Chipsona Series">
-        <img src="assets/images/ASP (2).png">
-        <p> Chipsona 1 Product-1</p>
-      </div>
-      <div class="pg-item" data-category="Potato Series>
-        <img src="assets/images/A SUNAC 1.png ">
-        <p> Chipsona 1 Product 2</p>
-      </div>
-      <div class="pg-item" data-category="medicines">
-        <img src="assets/images/PANTO-DSR.png" alt="PANTO DSR">
-        <p>Chipsona 3 Product 3</p>
-      </div>
+  <!-- PRODUCT CATEGORY --> <section id="categories" class="section">
+    <div class="container"> 
+    <h2>Product Category (Grid Image Upload)</h2>
+    <p class="lead">Upload product images to preview them in a clean grid (works locally in browser).</p> 
+    <div class="gallery-toolbar card" style="padding:14px;"> <div> 
+    <div style="font-weight:900;">Upload Category Images</div>
+    <div class="small">Example: Fresh Potato, Cold Storage, Chips Grade, Export Grade</div> </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+    <input id="imgUpload" type="file" accept="image/*" multiple /> <button class="btn" type="button" onclick="clearGallery()">Clear</button> </div> </div>
+    <div class="gallery" id="gallery"> 
+    <!-- placeholders --> 
+    <div class="imgbox"><div class="placeholder">Fresh Potato<br/>Upload an image</div></div> 
+    <div class="imgbox"><div class="placeholder">Graded Potato<br/>Upload an image</div></div> 
+    <div class="imgbox"><div class="placeholder">Packing Bags<br/>Upload an image</div></div>
+    <div class="imgbox"><div class="placeholder">Dispatch Truck<br/>Upload an image</div></div> </div>
+    <div class="divider"></div> 
+    <div class="grid"> <div class="tile"> <h3>Fresh Potatoes</h3> 
+    <p>Farm-fresh stock for wholesale markets and retailers.</p> </div> 
+    <div class="tile"> <h3>Cold Storage Lots</h3> 
+    <p>Quality lots from cold storage with grading available.</p> </div> 
+    <div class="tile"> <h3>Processing Grade</h3> <p>Suitable for chips, fries, and food processing units.</p> </div> </div> 
+    </div> 
+  </section> 
   <!-- ABOUT PRODUCT -->
   <section id="about" class="section">
     <div class="container">
