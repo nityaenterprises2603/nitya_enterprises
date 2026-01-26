@@ -292,49 +292,51 @@
     </div>
   </section>
 
-  <!-- PRODUCT CATEGORY -->
-  <section id="categories" class="section">
-    <div class="container">
-      <h2>Product Category (Grid Image Upload)</h2>
-      <p class="lead">Upload product images to preview them in a clean grid (works locally in browser).</p>
+  <!-- PRODUCT CATEGORY : CHIPSONA -->
+<section id="categories" class="section">
+  <div class="container">
+    <h2>Potato Categories – Chipsona Series</h2>
+    <p class="lead">Upload category-wise images (local preview only).</p>
 
-      <div class="gallery-toolbar card" style="padding:14px;">
-        <div>
-          <div style="font-weight:900;">Upload Category Images</div>
-          <div class="small">Example: Fresh Potato, Cold Storage, Chips Grade, Export Grade</div>
+    <div class="chipsona-grid">
+
+      <!-- Chipsona 1 -->
+      <div class="chip-tile">
+        <div class="chip-img" id="img-chip1">
+          <span>Chipsona-1<br/>Upload Image</span>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-          <input id="imgUpload" type="file" accept="image/*" multiple />
-          <button class="btn" type="button" onclick="clearGallery()">Clear</button>
-        </div>
+        <h3>Chipsona-1</h3>
+        <p>Premium processing grade – uniform size, low sugar.</p>
+        <input type="file" accept="image/*" onchange="loadImage(event,'img-chip1')" />
+        <button class="btn-sm" onclick="clearImage('img-chip1')">Clear</button>
       </div>
 
-      <div class="gallery" id="gallery">
-        <!-- placeholders -->
-        <div class="imgbox"><div class="placeholder">Fresh Potato<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Graded Potato<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Packing Bags<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Dispatch Truck<br/>Upload an image</div></div>
+      <!-- Chipsona 2 -->
+      <div class="chip-tile">
+        <div class="chip-img" id="img-chip2">
+          <span>Chipsona-2<br/>Upload Image</span>
+        </div>
+        <h3>Chipsona-2</h3>
+        <p>Ideal for chips & fries – balanced dry matter.</p>
+        <input type="file" accept="image/*" onchange="loadImage(event,'img-chip2')" />
+        <button class="btn-sm" onclick="clearImage('img-chip2')">Clear</button>
       </div>
 
-      <div class="divider"></div>
-
-      <div class="grid">
-        <div class="tile">
-          <h3>Fresh Potatoes</h3>
-          <p>Farm-fresh stock for wholesale markets and retailers.</p>
+      <!-- Chipsona 3 -->
+      <div class="chip-tile">
+        <div class="chip-img" id="img-chip3">
+          <span>Chipsona-3<br/>Upload Image</span>
         </div>
-        <div class="tile">
-          <h3>Cold Storage Lots</h3>
-          <p>Quality lots from cold storage with grading available.</p>
-        </div>
-        <div class="tile">
-          <h3>Processing Grade</h3>
-          <p>Suitable for chips, fries, and food processing units.</p>
-        </div>
+        <h3>Chipsona-3</h3>
+        <p>High yield variety – suitable for bulk processors.</p>
+        <input type="file" accept="image/*" onchange="loadImage(event,'img-chip3')" />
+        <button class="btn-sm" onclick="clearImage('img-chip3')">Clear</button>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ABOUT PRODUCT -->
   <section id="about" class="section">
