@@ -292,52 +292,22 @@
     </div>
   </section>
 
-  <!-- PRODUCT CATEGORY : CHIPSONA -->
-<section id="categories" class="section">
-  <div class="container">
-    <h2>Potato Categories – Chipsona Series</h2>
-    <p class="lead">Upload category-wise images (local preview only).</p>
-
-    <div class="chipsona-grid">
-
-      <!-- Chipsona 1 -->
-      <div class="chip-tile">
-        <div class="chip-img" id="img-chip1">
-          <span>Chipsona-1<br/>Upload Image</span>
-        </div>
-        <h3>Chipsona-1</h3>
-        <p>Premium processing grade – uniform size, low sugar.</p>
-        <input type="file" accept="image/*" onchange="loadImage(event,'img-chip1')" />
-        <button class="btn-sm" onclick="clearImage('img-chip1')">Clear</button>
+  <!-- Scrollable wrapper for Product Gallery (up–down scroll) -->
+  <div style="max-height:500px; overflow-y:auto; padding-right:4px;">
+    <div class="pg-grid">
+      <!-- Product category -->
+      <div class="pg-item" data-category="Chipsona Series">
+        <img src="assets/images/ASP (2).png">
+        <p> Chipsona 1 Product-1</p>
       </div>
-
-      <!-- Chipsona 2 -->
-      <div class="chip-tile">
-        <div class="chip-img" id="img-chip2">
-          <span>Chipsona-2<br/>Upload Image</span>
-        </div>
-        <h3>Chipsona-2</h3>
-        <p>Ideal for chips & fries – balanced dry matter.</p>
-        <input type="file" accept="image/*" onchange="loadImage(event,'img-chip2')" />
-        <button class="btn-sm" onclick="clearImage('img-chip2')">Clear</button>
+      <div class="pg-item" data-category="Potato Series>
+        <img src="assets/images/A SUNAC 1.png ">
+        <p> Chipsona 1 Product 2</p>
       </div>
-
-      <!-- Chipsona 3 -->
-      <div class="chip-tile">
-        <div class="chip-img" id="img-chip3">
-          <span>Chipsona-3<br/>Upload Image</span>
-        </div>
-        <h3>Chipsona-3</h3>
-        <p>High yield variety – suitable for bulk processors.</p>
-        <input type="file" accept="image/*" onchange="loadImage(event,'img-chip3')" />
-        <button class="btn-sm" onclick="clearImage('img-chip3')">Clear</button>
+      <div class="pg-item" data-category="medicines">
+        <img src="assets/images/PANTO-DSR.png" alt="PANTO DSR">
+        <p>Chipsona 3 Product 3</p>
       </div>
-
-    </div>
-  </div>
-</section>
-
-
   <!-- ABOUT PRODUCT -->
   <section id="about" class="section">
     <div class="container">
