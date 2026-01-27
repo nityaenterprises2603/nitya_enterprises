@@ -258,6 +258,53 @@
 }
 
 
+  
+/* === ABOUT US: background image (transparent) + brand-purple overlay + subtle parallax === */
+#about.about-us-bg{
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+/* Background image layer */
+#about.about-us-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: image-set(
+    url("assets/images/about-bg-1600.webp") 1x,
+    url("assets/images/about-bg-2400.webp") 2x
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;       /* subtle parallax (desktop) */
+  opacity: .18;                        /* transparency of image */
+  transform: scale(1.03);              /* reduces edge seams while scrolling */
+  z-index: 0;
+}
+
+/* Brand-purple overlay tint */
+#about.about-us-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(106,13,173,.10);   /* #6A0DAD with transparency */
+  z-index: 0;
+}
+
+/* Keep About Us content above layers */
+#about.about-us-bg .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile: disable fixed attachment (better performance) */
+@media (max-width: 768px){
+  #about.about-us-bg::before{ background-attachment: scroll; opacity: .12; }
+  #about.about-us-bg{ border-radius: 0; }
+}
+
   </style>
 </head>
 
@@ -361,34 +408,38 @@
        </div>
     </section>
       
-  <!-- ABOUT PRODUCT -->
-  <section id="about" class="section">
+  <!-- ABOUT US -->
+  <section id="about" class="section about-us-bg">
     <div class="container">
       <h2>About Us</h2>
-      <p class="lead">
+      <div class="about-product">
+        <div class="about-grid">
+          <p >
       Nitya Enterprises is an agriculture-focused enterprise engaged in the cultivation of
       processing-grade potatoes in Badaun District, Uttar Pradesh—one of India’s most suitable
       regions for chip-making potato varieties. We cultivate Chipsona Potato Series 1, Series 2,
       and Series 3 using controlled agronomic practices, quality seed material, and field-level
       monitoring to achieve parameters required by the potato chips and wafers industry.
     </p>
-     <p>
+          <p>
       Our cultivation is planned with a clear focus on high dry matter, low reducing sugars,
       uniform tuber size, and excellent frying quality. Each harvest lot is evaluated against
       industry benchmarks for specific gravity, moisture, chip colour, and oil absorption,
       ensuring consistent performance during frying and processing. This results in light-coloured,
       crisp chips with high recovery and controlled oil uptake.
     </p>
+        </div>
+      </div>
+
+      
+     
     </div>
 </section>
       <div class="two-col">
         <div class="tile">
           <h3>Quality & Grading</h3>
           <p>
-            Size grades: A / B / C 
-            • Clean sorting 
-            • Optional mesh/PP bag packing
-            • Visual checks before dispatch.
+            Size grades: A / B / C • Clean sorting • Optional mesh/PP bag packing • Visual checks before dispatch.
           </p>
           <div class="divider"></div>
           <div class="small">
@@ -399,9 +450,7 @@
         <div class="tile">
           <h3>Packing & Dispatch</h3>
           <p>
-            10 kg / 25 kg / 50 kg bag options 
-            • Local tempo & truck logistics 
-            • Outstation transport support.
+            10 kg / 25 kg / 50 kg bag options • Local tempo & truck logistics • Outstation transport support.
           </p>
           <div class="divider"></div>
           <div class="small">
