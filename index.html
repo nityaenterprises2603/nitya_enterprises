@@ -305,7 +305,54 @@
   #about.about-us-bg{ border-radius: 0; }
 }
 
-  </style>
+  
+/* === HERO / HEADER background image with overlay === */
+.hero{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: image-set(
+    url("products/images/potato_farm_hd_1600x900.png") 1x,
+    url("products/images/Potato farm_hd_2400.png") 2x
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.22;
+  z-index: 0;
+}
+
+/* Brand purple overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(106,13,173,0.18);
+  z-index: 0;
+}
+
+/* Keep hero content above background */
+.hero .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile optimization */
+@media (max-width:768px){
+  .hero::before{
+    background-attachment: scroll;
+    opacity: 0.16;
+  }
+}
+
+</style>
 </head>
 
 <body>
