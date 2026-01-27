@@ -222,7 +222,41 @@
       .contact-cards{grid-template-columns:1fr}
       h1{font-size:32px}
     }
-    
+    .about-product {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.about-product h2 {
+  color: #6A0DAD;
+  margin-bottom: 16px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-grid p {
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 15.5px;
+  color: #333;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid p {
+    text-align: left;
+  }
+}
+
 
   </style>
 </head>
@@ -332,12 +366,21 @@
     <div class="container">
       <h2>About Product</h2>
       <p class="lead">
-        Nitya Enterprises is an agriculture-focused enterprise engaged in the cultivation of processing-grade potatoes in Badaun District, Uttar Pradesh—one of India’s most suitable regions for chip-making potato varieties.
-        We cultivate Chipsona Potato Series 1, Series 2, and Series 3 using controlled agronomic practices, quality seed material, and field-level monitoring to achieve parameters required by the potato chips and wafers industry. Our cultivation is planned with a clear focus on high dry matter, low reducing sugars, uniform tuber size, and excellent frying quality.
-        Each harvest lot is evaluated against industry benchmarks for specific gravity, moisture, chip colour, and oil absorption, ensuring consistent performance during frying and processing. This results in light-coloured, crisp chips with high recovery and controlled oil uptake.
-        By combining scientific cultivation methods with practical field experience, Nitya Enterprises delivers process-ready potatoes directly from our farms, suitable for immediate processing or short-term storage prior to frying.
-      </p>
-
+      Nitya Enterprises is an agriculture-focused enterprise engaged in the cultivation of
+      processing-grade potatoes in Badaun District, Uttar Pradesh—one of India’s most suitable
+      regions for chip-making potato varieties. We cultivate Chipsona Potato Series 1, Series 2,
+      and Series 3 using controlled agronomic practices, quality seed material, and field-level
+      monitoring to achieve parameters required by the potato chips and wafers industry.
+    </p>
+     <p>
+      Our cultivation is planned with a clear focus on high dry matter, low reducing sugars,
+      uniform tuber size, and excellent frying quality. Each harvest lot is evaluated against
+      industry benchmarks for specific gravity, moisture, chip colour, and oil absorption,
+      ensuring consistent performance during frying and processing. This results in light-coloured,
+      crisp chips with high recovery and controlled oil uptake.
+    </p>
+    </div>
+</section>
       <div class="two-col">
         <div class="tile">
           <h3>Quality & Grading</h3>
