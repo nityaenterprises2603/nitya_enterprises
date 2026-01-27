@@ -255,6 +255,12 @@
   .about-grid p {
     text-align: left;
   }
+  .form-row{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:12px;
+}
+
 }
 
 
@@ -663,6 +669,7 @@
 
       const name  = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();   // ✅ NEW
       const btype = document.getElementById("btype").value.trim();
       const city  = document.getElementById("city").value.trim();
       const req   = document.getElementById("req").value.trim();
@@ -671,6 +678,7 @@
 `Potato Enquiry Details
 Name: ${name}
 Phone: ${phone}
+Email: ${email}
 Business Type: ${btype}
 City: ${city}
 Requirement: ${req}`;
@@ -731,6 +739,7 @@ Requirement: ${req}`;
     function copyEnquiry(){
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();   // ✅ NEW
       const btype = document.getElementById("btype").value.trim();
       const city = document.getElementById("city").value.trim();
       const req = document.getElementById("req").value.trim();
