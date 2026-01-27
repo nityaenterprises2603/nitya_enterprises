@@ -648,88 +648,58 @@
   </footer>
 
   <script>
-    // Update year
-    document.getElementById("yr").textContent = new Date().getFullYear();
+  // Update year
+  document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // Gallery upload preview
-    const upload = document.getElementById("imgUpload");
-    const gallery = document.getElementById("gallery");
+  function buildEnquiryText(){
+    const name  = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const btype = document.getElementById("btype").value.trim();
+    const city  = document.getElementById("city").value.trim();
+    const req   = document.getElementById("req").value.trim();
 
-    upload.addEventListener("change", (e) => {
-      const files = Array.from(e.target.files || []);
-      if(!files.length) return;
-
-      // Clear placeholders
-      gallery.innerHTML = "";
-
-      files.slice(0, 12).forEach(file => {
-        const box = document.createElement("div");
-        box.className = "imgbox";
-
-        const img = document.createElement("img");
-        img.alt = file.name;
-
-        const reader = new FileReader();
-        reader.onload = () => { img.src = reader.result; };
-        reader.readAsDataURL(file);
-
-        box.appendChild(img);
-        gallery.appendChild(box);
-      });
-    });
-
-    function clearGallery(){
-      upload.value = "";
-      gallery.innerHTML = `
-        <div class="imgbox"><div class="placeholder">Fresh Potato<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Graded Potato<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Packing Bags<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Dispatch Truck<br/>Upload an image</div></div>
-      `;
-    }
-
-    // WhatsApp send
-    function sendWhatsApp(event){
-      event.preventDefault();
-
-      const WA_NUMBER = "918487090212"; // <-- REPLACE: e.g. 919876543210
-
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const btype = document.getElementById("btype").value.trim();
-      const city = document.getElementById("city").value.trim();
-      const req = document.getElementById("req").value.trim();
-
-      const text =
-`Potato Enquiry:
+    return `Potato Enquiry:
 Name: ${name}
 Phone: ${phone}
 Business: ${btype}
 City: ${city}
 Requirement: ${req}`;
+  }
 
-      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-    }
+  // WhatsApp + Email (opens both)
+  function sendWhatsAppAndEmail(event){
+    event.preventDefault();
 
-    function copyEnquiry(){
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const btype = document.getElementById("btype").value.trim();
-      const city = document.getElementById("city").value.trim();
-      const req = document.getElementById("req").value.trim();
+    const WA_NUMBER = "918487090212"; // change if needed
+    const emailTo = "salesnityaenterprises@gmail.com";
 
-      const text =
-`Potato Enquiry:
-Name: ${name}
-Phone: ${phone}
-Business: ${btype}
-City: ${city}
-Requirement: ${req}`;
+    const text = buildEnquiryText();
+    const subject = "Potato Enquiry - Nitya Enterprises";
 
+    // 1) WhatsApp
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, "_blank");
 
-      navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
-    }
-  </script>
+    // 2) Email (mailto opens user's email app)
+    const mailUrl =
+      `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    window.open(mailUrl, "_blank");
+  }
+
+  // Optional: Email only button
+  function sendEmailOnly(){
+    const emailTo = "salesnityaenterprises@gmail.com";
+    const text = buildEnquiryText();
+    const subject = "Potato Enquiry - Nitya Enterprises";
+    window.location.href =
+      `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  }
+
+  function copyEnquiry(){
+    const text = buildEnquiryText();
+    navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
+  }
+</script>
+
 </body>
 </html>
