@@ -272,8 +272,8 @@
   position:absolute;
   inset:0;
   background-image: image-set(
-    url("products/images/potato_farm_hd_1600x900.png") 1x,
-    url("products/images/Potato farm_hd_2400.png") 2x
+    url("assets/images/about-bg-1600.webp") 1x,
+    url("assets/images/about-bg-2400.webp") 2x
   );
   background-size: cover;
   background-position: center;
@@ -585,7 +585,7 @@
           <h3>Enquiry Form</h3>
 
           <!-- This form is front-end only. You can connect it to WhatsApp / Email / Google Sheet later -->
-          <form onsubmit="sendWhatsApp(event)">
+          <form onsubmit="sendWhatsAppAndEmail(event)">
             <div class="form-row">
               <div>
                 <label>Your Name</label>
@@ -620,7 +620,7 @@
             <textarea id="req" placeholder="Example: 20 MT, Grade A, 50 Kg bags, dispatch to Rajkot" required></textarea>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-              <button class="btn primary" type="submit">Send on WhatsApp</button>
+              <button class="btn primary" type="submit">Send Enquiry</button>
               <button class="btn" type="button" onclick="copyEnquiry()">Copy Text</button>
             </div>
 
@@ -648,58 +648,104 @@
   </footer>
 
   <script>
-  // Update year
-  document.getElementById("yr").textContent = new Date().getFullYear();
+    // Update year
+    document.getElementById("yr").textContent = new Date().getFullYear();
 
-  function buildEnquiryText(){
-    const name  = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const btype = document.getElementById("btype").value.trim();
-    const city  = document.getElementById("city").value.trim();
-    const req   = document.getElementById("req").value.trim();
+    
+    
+    // WhatsApp + Email submission
+    function sendWhatsAppAndEmail(event){
+      event.preventDefault();
 
-    return `Potato Enquiry:
+      const WA_NUMBER = "918487090212";
+      const emailTo = "salesnityaenterprises@gmail.com";
+      const subject = "Potato Enquiry - Nitya Enterprises";
+
+      const name  = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const btype = document.getElementById("btype").value.trim();
+      const city  = document.getElementById("city").value.trim();
+      const req   = document.getElementById("req").value.trim();
+
+      const text =
+`Potato Enquiry Details
+Name: ${name}
+Phone: ${phone}
+Business Type: ${btype}
+City: ${city}
+Requirement: ${req}`;
+
+      // WhatsApp
+      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, "_blank");
+
+      // Email
+      const mailUrl =
+        `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+      window.open(mailUrl, "_blank");
+    }
+// Gallery upload preview
+    const upload = document.getElementById("imgUpload");
+    const gallery = document.getElementById("gallery");
+
+    upload.addEventListener("change", (e) => {
+      const files = Array.from(e.target.files || []);
+      if(!files.length) return;
+
+      // Clear placeholders
+      gallery.innerHTML = "";
+
+      files.slice(0, 12).forEach(file => {
+        const box = document.createElement("div");
+        box.className = "imgbox";
+
+        const img = document.createElement("img");
+        img.alt = file.name;
+
+        const reader = new FileReader();
+        reader.onload = () => { img.src = reader.result; };
+        reader.readAsDataURL(file);
+
+        box.appendChild(img);
+        gallery.appendChild(box);
+      });
+    });
+
+    function clearGallery(){
+      upload.value = "";
+      gallery.innerHTML = `
+        <div class="imgbox"><div class="placeholder">Fresh Potato<br/>Upload an image</div></div>
+        <div class="imgbox"><div class="placeholder">Graded Potato<br/>Upload an image</div></div>
+        <div class="imgbox"><div class="placeholder">Packing Bags<br/>Upload an image</div></div>
+        <div class="imgbox"><div class="placeholder">Dispatch Truck<br/>Upload an image</div></div>
+      `;
+    }
+    // WhatsApp send (disabled - email only)
+    /*
+    function sendWhatsApp(event){
+      event.preventDefault();
+      // Disabled in this version.
+    }
+    */
+
+    function copyEnquiry(){
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const btype = document.getElementById("btype").value.trim();
+      const city = document.getElementById("city").value.trim();
+      const req = document.getElementById("req").value.trim();
+
+      const text =
+`Potato Enquiry:
 Name: ${name}
 Phone: ${phone}
 Business: ${btype}
 City: ${city}
 Requirement: ${req}`;
-  }
 
-  // WhatsApp + Email (opens both)
-  function sendWhatsAppAndEmail(event){
-    event.preventDefault();
 
-    const WA_NUMBER = "918487090212"; // change if needed
-    const emailTo = "salesnityaenterprises@gmail.com";
-
-    const text = buildEnquiryText();
-    const subject = "Potato Enquiry - Nitya Enterprises";
-
-    // 1) WhatsApp
-    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
-    window.open(waUrl, "_blank");
-
-    // 2) Email (mailto opens user's email app)
-    const mailUrl =
-      `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-    window.open(mailUrl, "_blank");
-  }
-
-  // Optional: Email only button
-  function sendEmailOnly(){
-    const emailTo = "salesnityaenterprises@gmail.com";
-    const text = buildEnquiryText();
-    const subject = "Potato Enquiry - Nitya Enterprises";
-    window.location.href =
-      `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-  }
-
-  function copyEnquiry(){
-    const text = buildEnquiryText();
-    navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
-  }
-</script>
-
+      navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
+    }
+  </script>
 </body>
 </html>
