@@ -255,12 +255,6 @@
   .about-grid p {
     text-align: left;
   }
-  .form-row{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:12px;
-}
-
 }
 
 
@@ -591,7 +585,7 @@
           <h3>Enquiry Form</h3>
 
           <!-- This form is front-end only. You can connect it to WhatsApp / Email / Google Sheet later -->
-          <form onsubmit="sendWhatsAppAndEmail(event)">
+          <form onsubmit="sendWhatsApp(event)">
             <div class="form-row">
               <div>
                 <label>Your Name</label>
@@ -626,7 +620,7 @@
             <textarea id="req" placeholder="Example: 20 MT, Grade A, 50 Kg bags, dispatch to Rajkot" required></textarea>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-              <button class="btn primary" type="submit">Send Enquiry</button>
+              <button class="btn primary" type="submit">Send on WhatsApp</button>
               <button class="btn" type="button" onclick="copyEnquiry()">Copy Text</button>
             </div>
 
@@ -657,42 +651,7 @@
     // Update year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    
-    
-    // WhatsApp + Email submission
-    function sendWhatsAppAndEmail(event){
-      event.preventDefault();
-
-      const WA_NUMBER = "918487090212";
-      const emailTo = "salesnityaenterprises@gmail.com";
-      const subject = "Potato Enquiry - Nitya Enterprises";
-
-      const name  = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();   // ✅ NEW
-      const btype = document.getElementById("btype").value.trim();
-      const city  = document.getElementById("city").value.trim();
-      const req   = document.getElementById("req").value.trim();
-
-      const text =
-`Potato Enquiry Details
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Business Type: ${btype}
-City: ${city}
-Requirement: ${req}`;
-
-      // WhatsApp
-      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
-      window.open(waUrl, "_blank");
-
-      // Email
-      const mailUrl =
-        `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-      window.open(mailUrl, "_blank");
-    }
-// Gallery upload preview
+    // Gallery upload preview
     const upload = document.getElementById("imgUpload");
     const gallery = document.getElementById("gallery");
 
@@ -728,18 +687,34 @@ Requirement: ${req}`;
         <div class="imgbox"><div class="placeholder">Dispatch Truck<br/>Upload an image</div></div>
       `;
     }
-    // WhatsApp send (disabled - email only)
-    /*
+
+    // WhatsApp send
     function sendWhatsApp(event){
       event.preventDefault();
-      // Disabled in this version.
+
+      const WA_NUMBER = "918487090212"; // <-- REPLACE: e.g. 919876543210
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const btype = document.getElementById("btype").value.trim();
+      const city = document.getElementById("city").value.trim();
+      const req = document.getElementById("req").value.trim();
+
+      const text =
+`Potato Enquiry:
+Name: ${name}
+Phone: ${phone}
+Business: ${btype}
+City: ${city}
+Requirement: ${req}`;
+
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
     }
-    */
 
     function copyEnquiry(){
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();   // ✅ NEW
       const btype = document.getElementById("btype").value.trim();
       const city = document.getElementById("city").value.trim();
       const req = document.getElementById("req").value.trim();
