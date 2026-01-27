@@ -365,7 +365,7 @@
   position:absolute;
   inset:0;
   background-image: image-set(
-    url("products/images/inventory.png") 1x,
+    url("products/images/Potato farm_hd_2400.png") 1x,
     url("products/images/Potato farm_hd_2400.png") 2x
   );
   background-size: cover;
@@ -386,6 +386,44 @@
 
 /* Keep inventory content above background */
 #inventory .container{
+  position: relative;
+  z-index: 1;
+}
+
+
+/* === CONTACT US section background image === */
+#contact{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image */
+#contact::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: image-set(
+    url("products/images/contact-bg-2400.webp") 1x,
+    url("products/images/contact-bg-2400.webp") 2x
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.14;
+  z-index: 0;
+}
+
+/* Brand purple overlay */
+#contact::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(106,13,173,0.12);
+  z-index: 0;
+}
+
+/* Keep contact content above background */
+#contact .container{
   position: relative;
   z-index: 1;
 }
