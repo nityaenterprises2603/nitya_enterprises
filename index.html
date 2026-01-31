@@ -428,23 +428,8 @@
   z-index: 1;
 }
 
-/* === VIDEO PLACEHOLDER === */
-.video-placeholder{
-  width:100%;
-  max-width:900px;
-  aspect-ratio:16/9;
-  margin:0 auto;
-  border-radius:18px;
-  background:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("products/images/Potato farm_hd_2400.png") center/cover no-repeat;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  text-align:center;
-  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+
+
 }
 
 .video-placeholder .play-icon{
@@ -536,18 +521,18 @@
       </div>
     </div>
   </section>
-<!-- VIDEO PLACEHOLDER SECTION -->
-<section id="intro-video" class="section">
+/* === VIDEO PLACEHOLDER === */
+<section class="section">
   <div class="container">
-    <h2 style="text-align:center; color:#6A0DAD;">From Farm to Dispatch</h2>
-    <p style="text-align:center; max-width:720px; margin:0 auto 18px; color:#555;">
-      A quick look at our cultivation practices, grading process, packing standards,
-      and dispatch workflow. Video coming soon.
-    </p>
-
-    <div class="video-placeholder" title="Video coming soon">
-      <div class="play-icon">▶</div>
-      <p>Farm • Grading • Packing • Dispatch</p>
+    <div style="max-width:900px; margin:0 auto; aspect-ratio:16/9;">
+      <iframe
+        width="100%" height="100%"
+        src="https://youtube.com/shorts/Izw2TJH48aU?feature=share"
+        title="Farm to Dispatch – Nitya Enterprises"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 </section>
