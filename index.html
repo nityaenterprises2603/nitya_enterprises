@@ -477,6 +477,39 @@
   font-weight:700;
 }
 
+
+/* ===== Autoplay Gallery (sync with filter) ===== */
+.gallery-wrapper{
+  position: relative;
+  max-width: 520px;
+  margin: 16px auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-wrapper img{
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.nav-btn{
+  position: absolute;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 999px;
+  z-index: 2;
+}
+.nav-btn.left{ left: 10px; }
+.nav-btn.right{ right: 10px; }
+.nav-btn:hover{ background: rgba(0,0,0,0.8); }
+
 </style>
 </head>
 
@@ -567,16 +600,27 @@
 <!-- PRODUCT GALLERY SECTION -->
 <section id="product-gallery" style="padding:40px 20px; max-width:1100px; margin:40px auto;">
   <h2 style="text-align:center; color:#6A0DAD ;">Product Gallery</h2>
+
+  <!-- AUTOPLAY GALLERY (syncs with filter) -->
+  <div class="gallery-wrapper" id="autoGallery"
+       onmouseenter="pauseAuto()"
+       onmouseleave="startAuto()">
+    <button class="nav-btn left" type="button" aria-label="Previous" onclick="prevImage(true)">❮</button>
+    <img id="galleryImage" src="" alt="Product Image" onclick="toggleAutoByClick()" />
+    <button class="nav-btn right" type="button" aria-label="Next" onclick="nextImage(true)">❯</button>
+  </div>
+
   <p style="text-align:center; max-width:700px; margin:0 auto 10px; color:#555; font-size:0.95rem;">
     Filter by category to view multiple product images.
   </p>
+  
   <div class="pg-filter-bar">
     <button class="pg-btn active" data-category="all">All</button>
-    <button class="pg-btn" data-category="Potato Categories">Chipsona Series-1 </button>
-    <button class="pg-btn" data-category="Potato Categories">Chipsona Series-3 </button>
-    <button class="pg-btn" data-category="Potato Categories">Frysona Potato </button>
-    
+    <button class="pg-btn" data-category="Chipsona Series-1">Chipsona Series-1</button>
+    <button class="pg-btn" data-category="Chipsona Series-3">Chipsona Series-3</button>
+    <button class="pg-btn" data-category="frysona potato">Frysona Potato</button>
   </div>
+    
 
   <!-- Scrollable wrapper for Product Gallery (up–down scroll) -->
   <div style="max-height:500px; overflow-y:auto; padding-right:4px;">
@@ -932,5 +976,134 @@ Requirement: ${req}`;
       navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
     }
   </script>
+
+
+<script>
+/* ===== Filter + Autoplay Gallery (synced) + Pause on Click ===== */
+(function(){
+  const btns  = document.querySelectorAll(".pg-btn");
+  const items = document.querySelectorAll(".pg-item");
+  const imgEl = document.getElementById("galleryImage");
+
+  if(!btns.length || !items.length) return;
+
+  // Build image list from currently visible items (filtered)
+  function getVisibleImages(){
+    const imgs = [];
+    items.forEach(item=>{
+      if(item.style.display === "none") return;
+      // collect all <img> inside each visible item
+      item.querySelectorAll("img").forEach(im=>{
+        const src = (im.getAttribute("src") || "").trim();
+        if(src) imgs.push(src);
+      });
+    });
+    // de-duplicate
+    return [...new Set(imgs)];
+  }
+
+  let images = [];
+  let index = 0;
+  let autoTimer = null;
+  const interval = 3000;
+  let pausedByClick = false;
+
+  function showImage(){
+    if(!imgEl) return;
+    if(!images.length){
+      imgEl.src = "";
+      imgEl.alt = "No images in this filter";
+      imgEl.style.display = "none";
+      return;
+    }
+    imgEl.style.display = "";
+    imgEl.src = images[index];
+  }
+
+  function refreshGallery(resetIndex=true){
+    images = getVisibleImages();
+    if(resetIndex) index = 0;
+    showImage();
+  }
+
+  function startAuto(){
+    if(pausedByClick) return;          // if paused by click, don't restart automatically
+    if(autoTimer || images.length < 2) return;
+    autoTimer = setInterval(()=> nextImage(false), interval);
+  }
+
+  function pauseAuto(){
+    clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  // If user clicks arrows or image, pause autoplay (toggle)
+  window.toggleAutoByClick = function(){
+    if(!images.length) return;
+    if(autoTimer){
+      pausedByClick = true;
+    }
+  };
+
+  function setPausedByClick(state){
+    pausedByClick = state;
+    if(state) pauseAuto();
+    else startAuto();
+  }
+
+  window.startAuto = function(){
+    startAuto();
+  };
+  window.pauseAuto = function(){
+    pauseAuto();
+  };
+
+  window.nextImage = function(userClick=false){
+    if(!images.length) return;
+    if(userClick) setPausedByClick(true);
+    index = (index + 1) % images.length;
+    showImage();
+  };
+
+  window.prevImage = function(userClick=false){
+    if(!images.length) return;
+    if(userClick) setPausedByClick(true);
+    index = (index - 1 + images.length) % images.length;
+    showImage();
+  };
+
+  // Clicking image toggles pause/resume
+  window.toggleAutoByClick = function(){
+    if(!images.length) return;
+    setPausedByClick(!pausedByClick);
+  };
+
+  // Filter behavior + sync
+  btns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      btns.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const cat = btn.getAttribute("data-category");
+
+      items.forEach(item=>{
+        const itemCat = item.getAttribute("data-category");
+        item.style.display = (cat === "all" || itemCat === cat) ? "" : "none";
+      });
+
+      // After filtering, sync gallery list and restart autoplay unless paused by click
+      refreshGallery(true);
+      pauseAuto();
+      startAuto();
+    });
+  });
+
+  // Initialize: show all items as-is, then build images and start autoplay
+  refreshGallery(true);
+  startAuto();
+
+})();
+</script>
+
 </body>
 </html>
