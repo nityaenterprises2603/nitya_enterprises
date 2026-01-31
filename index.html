@@ -279,7 +279,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;       /* subtle parallax (desktop) */
-  opacity: .18;                        /* transparency of image */
+  opacity: 0.90;                        /* transparency of image */
   transform: scale(1.03);              /* reduces edge seams while scrolling */
   z-index: 0;
 }
@@ -289,7 +289,7 @@
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(106,13,173,.10);   /* #6A0DAD with transparency */
+  background: rgba(106,13,173,0.10);   /* #6A0DAD with transparency */
   z-index: 0;
 }
 
@@ -301,7 +301,7 @@
 
 /* Mobile: disable fixed attachment (better performance) */
 @media (max-width: 768px){
-  #about.about-us-bg::before{ background-attachment: scroll; opacity: .12; }
+  #about.about-us-bg::before{ background-attachment: scroll; opacity: 0.90; }
   #about.about-us-bg{ border-radius: 0; }
 }
 
@@ -325,7 +325,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  opacity: 0.22;
+  opacity: 0.90;
   z-index: 0;
 }
 
@@ -334,7 +334,7 @@
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(106,13,173,0.18);
+  background: rgba(106,13,173,0.10);
   z-index: 0;
 }
 
@@ -348,7 +348,7 @@
 @media (max-width:768px){
   .hero::before{
     background-attachment: scroll;
-    opacity: 0.16;
+    opacity: 0.90;
   }
 }
 
@@ -371,7 +371,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.14;
+  opacity: 0.90;
   z-index: 0;
 }
 
@@ -380,7 +380,7 @@
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(106,13,173,0.12);
+  background: rgba(106,13,173,0.10);
   z-index: 0;
 }
 
@@ -409,7 +409,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.14;
+  opacity: 0.90;
   z-index: 0;
 }
 
@@ -418,7 +418,7 @@
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(106,13,173,0.12);
+  background: rgba(106,13,173,0.10);
   z-index: 0;
 }
 
