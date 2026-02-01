@@ -163,6 +163,14 @@
       color:var(--text);
       outline:none;
     }
+    /* === Highlight FIRST COLUMN (Parameter) in LAB tables only === */
+.lab-tables table th:first-child,
+.lab-tables table td:first-child{
+  background: rgba(106,13,173,0.15); /* soft brand purple */
+  color:#1D119A;
+  font-weight:800;
+  white-space: nowrap;
+}
     textarea{min-height:120px; resize:vertical}
     input::placeholder, textarea::placeholder{color: rgba(233,238,252,.55)}
     .note{color:var(--muted); font-size:13px; margin-top:8px}
