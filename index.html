@@ -546,6 +546,30 @@
   .lab-grid .table-wrap table{min-width:720px;} /* keeps your existing horizontal scroll behavior */
 }
 
+
+/* ===== Lab Tables: Zebra rows + Industry Standard icon (LAB only) ===== */
+#lab-reports table{ border-radius:16px; }
+#lab-reports table tbody tr:nth-child(even) td:not(:first-child){
+  background: rgba(255,255,255,.04);
+}
+#lab-reports table tbody tr:nth-child(odd) td:not(:first-child){
+  background: rgba(255,255,255,.02);
+}
+/* Keep hover subtle */
+#lab-reports table tbody tr:hover td:not(:first-child){
+  background: rgba(255,255,255,.06);
+}
+/* Add ✓ Meets Industry Standard prefix in Remarks column (LAB only) */
+#lab-reports table tbody td:last-child{
+  position: relative;
+  padding-left: 12px;
+}
+#lab-reports table tbody td:last-child::before{
+  content: "✓ Meets Industry Standard — ";
+  color: #35C37D;
+  font-weight: 900;
+}
+
 </style>
 </head>
 
