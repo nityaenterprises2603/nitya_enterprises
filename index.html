@@ -163,14 +163,6 @@
       color:var(--text);
       outline:none;
     }
-    /* === Highlight FIRST COLUMN (Parameter) in LAB tables only === */
-.lab-tables table th:first-child,
-.lab-tables table td:first-child{
-  background: rgba(106,13,173,0.15); /* soft brand purple */
-  color:#1D119A;
-  font-weight:800;
-  white-space: nowrap;
-}
     textarea{min-height:120px; resize:vertical}
     input::placeholder, textarea::placeholder{color: rgba(233,238,252,.55)}
     .note{color:var(--muted); font-size:13px; margin-top:8px}
@@ -230,6 +222,14 @@
       .contact-cards{grid-template-columns:1fr}
       h1{font-size:32px}
     }
+	/* === Highlight FIRST COLUMN (Parameter) in LAB tables only === */
+.lab-tables table th:first-child,
+.lab-tables table td:first-child{
+  background: rgba(106,13,173,0.15); /* soft brand purple */
+  color:#1D119A;
+  font-weight:800;
+  white-space: nowrap;
+}
     .about-product {
   max-width: 1100px;
   margin: 0 auto;
@@ -518,6 +518,41 @@
 .nav-btn.right{ right: 10px; }
 .nav-btn:hover{ background: rgba(0,0,0,0.8); }
 
+
+/* ===== Lab Reports (Frysona & Chipsona-1) ===== */
+.lab-badge{
+  display:inline-block;
+  margin-left:10px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  background: rgba(95,211,166,.22);
+  border:1px solid rgba(95,211,166,.45);
+  color: #1D119A;
+}
+.lab-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  align-items:start;
+}
+.lab-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.lab-actions .btn{white-space:nowrap;}
+/* Make tables fit nicely inside tiles */
+.lab-grid .table-wrap table{min-width: 520px;}
+@media (max-width: 980px){
+  .lab-grid{grid-template-columns:1fr;}
+  .lab-grid .table-wrap table{min-width:720px;} /* keeps your existing horizontal scroll behavior */
+}
+
 </style>
 </head>
 
@@ -714,7 +749,7 @@
   <!-- INVENTORY -->
   <section id="inventory" class="section">
     <div class="container">
-      <h2>Inventory</h2>
+      <h2>Inventory <span class="lab-badge">Lab Tested</span></h2>
       <div class="table-wrap">
         <table>
           <thead>
@@ -761,6 +796,99 @@
       </div>
     </div>
   </section>
+
+  
+  <!-- LAB REPORTS (between Inventory and Other Services) -->
+  <section id="lab-reports" class="section">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <h2 style="margin:0;">Lab Test Parameters <span class="lab-badge">Quality Check</span></h2>
+        <div class="lab-actions">
+          <button class="btn" type="button" onclick="toggleLabReports()">Hide / Show</button>
+          <button class="btn primary" type="button" onclick="printSection('labFrysona')">Download Frysona PDF</button>
+          <button class="btn primary" type="button" onclick="printSection('labChipsona1')">Download Chipsona-1 PDF</button>
+        </div>
+      </div>
+
+      <p class="lead">Processing-grade benchmarks for fries & chips. Fill “Observed Value” after lab testing.</p>
+
+      <div id="labReportsWrap" class="lab-grid">
+        <!-- Frysona -->
+        <div class="tile" id="labFrysona">
+          <h3 style="margin-top:0;">Potato Laboratory Analysis Report – Frysona Potato</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Sample Name</th>
+                  <th>Ideal Range</th>
+                  <th>Observed Value</th>
+                  <th>Year</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Tuber Size (mm / g)</td><td>Frysona Potato</td><td>50–80 mm (uniform)</td><td>—</td><td>2024–25</td><td>Suitable for french fries</td></tr>
+                <tr><td>Moisture Content (%)</td><td>Frysona Potato</td><td>74–78%</td><td>—</td><td>2024–25</td><td>Lower moisture preferred</td></tr>
+                <tr><td>Dry Matter (%)</td><td>Frysona Potato</td><td>21–25%</td><td>—</td><td>2024–25</td><td>High fry yield</td></tr>
+                <tr><td>Reducing Sugars (%)</td><td>Frysona Potato</td><td>≤ 0.15%</td><td>—</td><td>2024–25</td><td>Controls fry colour</td></tr>
+                <tr><td>Specific Gravity</td><td>Frysona Potato</td><td>1.085–1.105</td><td>—</td><td>2024–25</td><td>Indicates solids</td></tr>
+                <tr><td>Starch Content (%)</td><td>Frysona Potato</td><td>14–18%</td><td>—</td><td>2024–25</td><td>Good texture after frying</td></tr>
+                <tr><td>Fry Colour Score</td><td>Frysona Potato</td><td>Light golden (1–2)</td><td>—</td><td>2024–25</td><td>Acceptable for fries</td></tr>
+                <tr><td>Oil Absorption (%)</td><td>Frysona Potato</td><td>Low (&lt; 8%)</td><td>—</td><td>2024–25</td><td>Better processing recovery</td></tr>
+                <tr><td>Defects / Damage (%)</td><td>Frysona Potato</td><td>≤ 5%</td><td>—</td><td>2024–25</td><td>Within acceptable limit</td></tr>
+                <tr><td>Sprouting (%)</td><td>Frysona Potato</td><td>Nil</td><td>—</td><td>2024–25</td><td>Mandatory requirement</td></tr>
+                <tr><td>Cold Sweetening Index</td><td>Frysona Potato</td><td>Low</td><td>—</td><td>2024–25</td><td>Good storage stability</td></tr>
+                <tr><td>Pesticide Residue</td><td>Frysona Potato</td><td>Within MRL</td><td>—</td><td>2024–25</td><td>As per FSSAI norms</td></tr>
+                <tr><td>Heavy Metals</td><td>Frysona Potato</td><td>Within limits</td><td>—</td><td>2024–25</td><td>Pb, Cd, As compliant</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Chipsona-1 -->
+        <div class="tile" id="labChipsona1">
+          <h3 style="margin-top:0;">Potato Laboratory Analysis Report – Chipsona-1 Potato</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Sample Name</th>
+                  <th>Ideal Range</th>
+                  <th>Observed Value</th>
+                  <th>Year</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Tuber Size (mm / g)</td><td>Chipsona-1 Potato</td><td>45–75 mm (uniform)</td><td>—</td><td>2024–25</td><td>Suitable for chips</td></tr>
+                <tr><td>Moisture Content (%)</td><td>Chipsona-1 Potato</td><td>75–80%</td><td>—</td><td>2024–25</td><td>Affects chip crispness</td></tr>
+                <tr><td>Dry Matter (%)</td><td>Chipsona-1 Potato</td><td>20–24%</td><td>—</td><td>2024–25</td><td>Essential for chips</td></tr>
+                <tr><td>Reducing Sugars (%)</td><td>Chipsona-1 Potato</td><td>≤ 0.12%</td><td>—</td><td>2024–25</td><td>Prevents dark chips</td></tr>
+                <tr><td>Specific Gravity</td><td>Chipsona-1 Potato</td><td>1.080–1.100</td><td>—</td><td>2024–25</td><td>High solids recovery</td></tr>
+                <tr><td>Starch Content (%)</td><td>Chipsona-1 Potato</td><td>12–17%</td><td>—</td><td>2024–25</td><td>Ensures crisp texture</td></tr>
+                <tr><td>Fry Colour Score</td><td>Chipsona-1 Potato</td><td>Light golden (1–2)</td><td>—</td><td>2024–25</td><td>Chip industry standard</td></tr>
+                <tr><td>Oil Absorption (%)</td><td>Chipsona-1 Potato</td><td>Very low (&lt; 7%)</td><td>—</td><td>2024–25</td><td>Higher chip yield</td></tr>
+                <tr><td>Defects / Damage (%)</td><td>Chipsona-1 Potato</td><td>≤ 5%</td><td>—</td><td>2024–25</td><td>Acceptable</td></tr>
+                <tr><td>Sprouting (%)</td><td>Chipsona-1 Potato</td><td>Nil</td><td>—</td><td>2024–25</td><td>Not acceptable if present</td></tr>
+                <tr><td>Cold Sweetening Index</td><td>Chipsona-1 Potato</td><td>Very low</td><td>—</td><td>2024–25</td><td>Preferred for storage</td></tr>
+                <tr><td>Pesticide Residue</td><td>Chipsona-1 Potato</td><td>Within MRL</td><td>—</td><td>2024–25</td><td>FSSAI compliant</td></tr>
+                <tr><td>Heavy Metals</td><td>Chipsona-1 Potato</td><td>Within limits</td><td>—</td><td>2024–25</td><td>Safe for processing</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="small" style="margin-top:10px;">
+        Tip: To print as PDF, click “Download … PDF” and choose <b>Save as PDF</b> in the print dialog.
+      </div>
+    </div>
+  </section>
+
 
   <!-- OTHER SERVICES -->
   <section id="services" class="section">
@@ -1106,6 +1234,51 @@ Requirement: ${req}`;
   startAuto();
 
 })();
+</script>
+
+
+<script>
+/* ===== Lab Reports: Toggle + Print to PDF ===== */
+function toggleLabReports(){
+  const wrap = document.getElementById("labReportsWrap");
+  if(!wrap) return;
+  const hidden = wrap.style.display === "none";
+  wrap.style.display = hidden ? "" : "none";
+}
+
+function printSection(sectionId){
+  const el = document.getElementById(sectionId);
+  if(!el) return;
+
+  // Clone only the selected section content
+  const title = (el.querySelector("h3") ? el.querySelector("h3").textContent : "Lab Report");
+  const tableWrap = el.querySelector(".table-wrap");
+  const html = `
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <title>${title}</title>
+      <style>
+        body{font-family: Arial, sans-serif; margin: 24px; color:#111;}
+        h2{margin:0 0 10px; font-size:18px;}
+        table{width:100%; border-collapse:collapse; font-size:12px;}
+        th,td{border:1px solid #ddd; padding:8px; text-align:left; vertical-align:top;}
+        th{background:#f3f4f6; text-transform:uppercase; letter-spacing:.06em; font-size:11px;}
+        .note{margin-top:10px; font-size:11px; color:#444;}
+      </style>
+    </head>
+    <body>
+      <h2>${title}</h2>
+      ${tableWrap ? tableWrap.innerHTML : el.innerHTML}
+      <div class="note">Generated from Nitya Enterprises website lab parameters section.</div>
+      <script>window.onload = () => { window.print(); window.close(); }<\/script>
+    </body>
+  </html>`;
+  const w = window.open("", "_blank");
+  w.document.open();
+  w.document.write(html);
+  w.document.close();
+}
 </script>
 
 </body>
