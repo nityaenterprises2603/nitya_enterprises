@@ -4,7 +4,19 @@
   <meta charset="utf-8" />
   <meta name="google-site-verification" content="v3wz7tKogXVzBUyhMMQjC17fhGpQZh-2XLDt8JeFRfc" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nitya Enterprises | Processing-Grade Potato Bulk Supply (Chipsona & Frysona)</title>
+  
+  <!-- Performance hints -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//www.youtube.com">
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+
+  <!-- Preload key above-the-fold images (keep paths same as your CSS) -->
+  <link rel="preload" as="image" href="assets/images/background02.png">
+  <link rel="preload" as="image" href="assets/images/Vision -bg.png">
+  <link rel="preload" as="image" href="assets/images/inventory_bg_hd.png">
+  <link rel="preload" as="image" href="assets/images/contact-bg.png">
+
+<title>Nitya Enterprises | Processing-Grade Potato Bulk Supply (Chipsona & Frysona)</title>
 
   <!-- SEO Meta -->
   <meta name="description" content="Nitya Enterprises supplies processing-grade potatoes (Chipsona Series-1, Chipsona Series-3, Frysona) directly from farmlands in Badaun, Uttar Pradesh. Bulk supply for traders, cold storages, chips & fries units with grading, packing and reliable dispatch." />
@@ -774,7 +786,120 @@
   z-index: 2;
 }
 
+
+
+/* ===== FAQ ===== */
+.faq-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+.faq-item{
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+.faq-item summary{
+  cursor: pointer;
+  padding: 14px 16px;
+  font-weight: 900;
+  color: #1D119A;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-body{
+  padding: 0 16px 16px;
+  color: #111827;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+
+
+/* ===== Core Web Vitals helpers ===== */
+.section{
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
 </style>
+
+  <!-- Structured Data: FAQ + Products -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Which potato varieties do you supply for chips and fries?",
+        "acceptedAnswer":{"@type":"Answer","text":"We supply processing-grade potatoes including Chipsona Series-1 and Chipsona Series-3 (chips/wafers) and Frysona (French fries & deep frying), subject to seasonal availability."}
+      },
+      {
+        "@type":"Question",
+        "name":"Do you provide grading and packing?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. We can supply in graded sizes (A/B/C) with clean sorting and packing options like 10 kg / 25 kg / 50 kg bags, as per order requirements."}
+      },
+      {
+        "@type":"Question",
+        "name":"What details should I share for a quick quotation?",
+        "acceptedAnswer":{"@type":"Answer","text":"Share variety (Chipsona/Frysona), required grade/size, quantity (MT), delivery location, packing preference, and expected dispatch date. We’ll confirm availability and pricing."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you ensure processing quality?",
+        "acceptedAnswer":{"@type":"Answer","text":"Harvest lots are evaluated against common industry benchmarks such as dry matter/specific gravity, reducing sugars, fry/chip colour and storage condition to ensure consistent frying performance."}
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Processing-Grade Potato Varieties",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "item":{
+          "@type":"Product",
+          "name":"Chipsona Series-1 Potatoes",
+          "category":"Processing-grade potatoes",
+          "brand":{"@type":"Brand","name":"Nitya Enterprises"},
+          "url":"https://nityaenterprises2603.github.io/nitya_enterprises/#products"
+        }
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "item":{
+          "@type":"Product",
+          "name":"Chipsona Series-3 Potatoes",
+          "category":"Processing-grade potatoes",
+          "brand":{"@type":"Brand","name":"Nitya Enterprises"},
+          "url":"https://nityaenterprises2603.github.io/nitya_enterprises/#products"
+        }
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "item":{
+          "@type":"Product",
+          "name":"Frysona Potatoes",
+          "category":"Processing-grade potatoes",
+          "brand":{"@type":"Brand","name":"Nitya Enterprises"},
+          "url":"https://nityaenterprises2603.github.io/nitya_enterprises/#products"
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
@@ -1211,7 +1336,45 @@
     </div>
   </section>
 
-  <footer>
+  
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq-wrap">
+        <details class="faq-item" open>
+          <summary>Which potato varieties do you supply for chips and fries?</summary>
+          <div class="faq-body">
+            We supply processing-grade potatoes including Chipsona Series-1 and Chipsona Series-3 (chips/wafers) and Frysona (French fries & deep frying), subject to seasonal availability.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you provide grading and packing?</summary>
+          <div class="faq-body">
+            Yes. We can supply in graded sizes (A/B/C) with clean sorting and packing options like 10 kg / 25 kg / 50 kg bags, as per order requirements.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What details should I share for a quick quotation?</summary>
+          <div class="faq-body">
+            Share variety (Chipsona/Frysona), required grade/size, quantity (MT), delivery location, packing preference, and expected dispatch date. We’ll confirm availability and pricing.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do you ensure processing quality?</summary>
+          <div class="faq-body">
+            Harvest lots are evaluated against common industry benchmarks such as dry matter/specific gravity, reducing sugars, fry/chip colour and storage condition to ensure consistent frying performance.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+<footer>
     <div class="container">
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
         <div>© <span id="yr"></span> Nitya Enterprises. All rights reserved.</div>
