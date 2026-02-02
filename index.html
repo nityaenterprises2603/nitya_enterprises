@@ -3,8 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> Nitya Enterprises</title>
-  <style>
+  <title>Nitya Enterprises | Processing-Grade Potato Bulk Supply (Chipsona & Frysona)</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Nitya Enterprises supplies processing-grade potatoes (Chipsona Series-1, Chipsona Series-3, Frysona) directly from farmlands in Badaun, Uttar Pradesh. Bulk supply for traders, cold storages, chips & fries units with grading, packing and reliable dispatch." />
+  <meta name="keywords" content="potato supplier, bulk potatoes, Chipsona potato, Frysona potato, processing grade potato, chips potato, fries potato, potato wholesaler, Badaun potato, Uttar Pradesh potatoes, potato dispatch, potato grading" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#6A0DAD" />
+
+  <!-- Canonical (update if your URL changes) -->
+  <link rel="canonical" href="https://nityaenterprises2603.github.io/nitya_enterprises/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nitya Enterprises | Processing-Grade Potato Bulk Supply" />
+  <meta property="og:description" content="Bulk supply of Chipsona & Frysona potatoes with grading, packing and dispatch support." />
+  <meta property="og:url" content="https://nityaenterprises2603.github.io/nitya_enterprises/" />
+  <meta property="og:site_name" content="Nitya Enterprises" />
+  <meta property="og:image" content="https://nityaenterprises2603.github.io/nitya_enterprises/logo_imresizer.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nitya Enterprises | Processing-Grade Potato Bulk Supply" />
+  <meta name="twitter:description" content="Bulk supply of Chipsona & Frysona potatoes with grading, packing and dispatch support." />
+  <meta name="twitter:image" content="https://nityaenterprises2603.github.io/nitya_enterprises/logo_imresizer.jpg" />
+
+  <!-- Structured Data (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Nitya Enterprises",
+    "url": "https://nityaenterprises2603.github.io/nitya_enterprises/",
+    "logo": "https://nityaenterprises2603.github.io/nitya_enterprises/logo_imresizer.jpg",
+    "description": "Bulk supplier of processing-grade potatoes (Chipsona & Frysona) with grading, packing, and dispatch support.",
+    "telephone": ["<a href="tel:+919510683160">+91-9510683160</a>","<a href="tel:+918487090212">+91-8487090212</a>","+91-9099381880"],
+    "email": "<a href="mailto:salesnityaenterprises@gmail.com">salesnityaenterprises@gmail.com</a>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Krishna Colony, Village Hatsa, Bisauli",
+      "addressLocality": "Badaun",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "243720",
+      "addressCountry": "IN"
+    },
+    "areaServed": ["Gujarat","Uttar Pradesh","India"],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Chipsona Series-1 Potatoes"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Chipsona Series-3 Potatoes"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Frysona Potatoes"
+        }
+      }
+    ]
+  }
+  </script>
+
+<style>
     :root{
       --bg: #FFFFFF;
       --card:#0F172A;
@@ -261,7 +331,6 @@
   color: #1D119A;
 }
 
-}
 
 
   
@@ -436,7 +505,6 @@
 
 
 
-}
 
 .video-placeholder .play-icon{
   font-size:64px;
@@ -457,13 +525,6 @@
   margin:0;
 }
 
-
-    }
-
-/* ===== About Us paragraph color override ONLY ===== */
-#about .about-grid p{
-  color:#1D119A !important;
-}
 
 
 /* ===== About Us paragraph color + bold ONLY ===== */
@@ -610,17 +671,99 @@
   margin-bottom: 8px;
 }
 
+
+
+/* ===== Product Gallery Filter Buttons + Grid ===== */
+.pg-filter-bar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:14px auto 18px;
+}
+.pg-btn{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.75);
+  color:#1D119A;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.pg-btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.92);}
+.pg-btn.active{
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color:#071224;
+  border-color: transparent;
+}
+.pg-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+}
+.pg-item{
+  border-radius:18px;
+  border:1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.72);
+  overflow:hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+.pg-item img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  display:block;
+}
+.pg-item p{
+  margin:0;
+  padding:12px 12px 14px;
+  color:#111827;
+  font-weight:800;
+}
+@media (max-width:980px){
+  .pg-grid{grid-template-columns: repeat(2, 1fr);}
+}
+@media (max-width:560px){
+  .pg-grid{grid-template-columns: 1fr;}
+  .pg-item img{height:220px;}
+}
+
+
+/* ===== Accessibility: Skip link ===== */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left:16px;
+  top:16px;
+  width:auto;
+  height:auto;
+  padding:10px 12px;
+  background:#fff;
+  color:#111;
+  border-radius:12px;
+  z-index:9999;
+  border:2px solid rgba(0,0,0,0.15);
+}
+
 </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <!-- NAV -->
   <div class="topbar">
     <div class="container">
-      <div class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="#home">
           <div class="logo">
-  <img src="logo_imresizer.jpg" alt="Nitya Enterprises Logo">
+  <img src="logo_imresizer.jpg" alt="Nitya Enterprises logo" width="200" height="100" loading="eager" decoding="async">
 </div>
             <div>Nitya Enterprises</div>
             <div class="small">ChipGrade Potato • Direct from Farmland • Perfect for Chips. </div>
@@ -636,9 +779,11 @@
           <a href="#contact">Contact Us</a>
           <a class="cta" href="#contact">Get Quote</a>
         </div>
-      </div>
+      </nav>
     </div>
   </div>
+
+  <main id="main">
 
   <!-- HERO -->
   <section id="home" class="hero">
@@ -686,9 +831,7 @@
     <div style="max-width:900px; margin:0 auto; aspect-ratio:16/9;">
       <iframe
         width="100%" height="100%"
-        src="https://www.youtube.com/embed/Izw2TJH48aU"
-"
-        title="Farm to Dispatch – Nitya Enterprises"
+        src="https://www.youtube.com/embed/Izw2TJH48aU"title="Farm to Dispatch – Nitya Enterprises"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -727,83 +870,62 @@
     <div class="pg-grid">
       <!-- Potato Categories -->
       <div class="pg-item" data-category="Chipsona Series-1">
-        <img src="products/images/Ch-1.jpg">
+        <img alt="Chipsona Series-1 potato" loading="lazy" decoding="async" src="products/images/Ch-1.jpg">
         <p> Chipsona Series-1 – Product 1</p>
       </div>
       <div class="pg-item" data-category="Chipsona Series-3">
-        <img src="products/images/Ch-2.jpg">
+        <img alt="Chipsona Series-3 potato" loading="lazy" decoding="async" src="products/images/Ch-2.jpg">
         <p>Chipsona Series-2 – Product 2</p>
       </div>
       <div class="pg-item" data-category="frysona potato">
-        <img src="products/images/Ch-3.jpg">
-        <img src="products/images/Frysona_Potatos.png ">
+        <img alt="Product image" loading="lazy" decoding="async" src="products/images/Ch-3.jpg">
         <p>Frysona Potato– Product 3</p>
       </div>
        </div>
     </section>
       
+  
   <!-- ABOUT US -->
   <section id="about" class="section about-us-bg">
     <div class="container">
       <h2>About Us</h2>
+
       <div class="about-product">
         <div class="about-grid">
-          <p >
-      Nitya Enterprises is an agriculture-focused enterprise engaged in the cultivation 
-      of processing-grade potatoes in Badaun District, Uttar Pradesh—one of India’s most 
-      suitable regions for chip- and fry-grade potato varieties. We cultivate Chipsona P
-      -otato Series-1, Series-3, and Frysona using controlled agronomic practices, certi
-      -fied quality seed material, and continuous field-level monitoring to meet the str
-      -ingent requirements of the potato chips, wafers, and French fries’ industry.
-
-    </p>
           <p>
-      Our cultivation strategy is designed with a clear focus on high dry matter content,
-      low reducing sugars, uniform tuber size, and superior frying quality. Chipsona varieties
-      are grown specifically for potato chips and wafers, delivering excellent slice integrity, 
-      light chip colour, and low oil absorption. Frysona, on the other hand, is cultivated for 
-      French fries and deep-frying applications, producing long, uniform tubers with a crisp 
-      exterior  and fluffy internal texture after frying.
-    </p>
-     <p> 
-       Each harvest lot—whether Chipsona or Frysona—is systematically evaluated against industry 
-       benchmarks for specific gravity, moisture content, reducing sugars, frying colour, and oil
-       absorption. This rigorous quality assessment ensures consistent processing performance, re
-       -sulting in light-coloured, crisp chips and fries with high recovery and controlled oil up
-       -take, meeting the expectations of snack manufacturers, QSR suppliers, and bulk processors.
-     </p>
-          
+            Nitya Enterprises is an agriculture-focused enterprise engaged in the cultivation of processing-grade potatoes in Badaun District, Uttar Pradesh—one of India’s most suitable regions for chip- and fry-grade potato varieties. We cultivate Chipsona Series-1, Chipsona Series-3, and Frysona using controlled agronomic practices, certified quality seed material, and continuous field-level monitoring to meet the stringent requirements of the potato chips, wafers, and French fries industry.
+          </p>
+
+          <p>
+            Our cultivation strategy focuses on high dry matter content, low reducing sugars, uniform tuber size, and superior frying quality. Chipsona varieties are grown for chips and wafers, delivering light chip colour and low oil absorption. Frysona is cultivated for French fries and deep-frying, producing long, uniform tubers with a crisp exterior and fluffy inner texture after frying.
+          </p>
+
+          <p>
+            Each harvest lot is evaluated against industry benchmarks for specific gravity, moisture content, reducing sugars, frying colour, and oil absorption. This ensures consistent processing performance—light-coloured, crisp chips and fries with high recovery and controlled oil uptake—meeting expectations of snack manufacturers, QSR suppliers, and bulk processors.
+          </p>
         </div>
-      </div>  
-    </div>
-</section>
+      </div>
+
       <div class="two-col">
         <div class="tile">
-          <h3>Quality & Grading</h3>
-          <p>
-            Size grades: A / B / C • Clean sorting • Optional mesh/PP bag packing • Visual checks before dispatch.
-          </p>
+          <h3>Quality &amp; Grading</h3>
+          <p>Size grades: A / B / C • Clean sorting • Optional mesh/PP bag packing • Visual checks before dispatch.</p>
           <div class="divider"></div>
-          <div class="small">
-            Add your exact variety names here (e.g., Jyoti, Chipsona, Kufri, etc.).
-          </div>
+          <div class="small">Processing varieties: Chipsona Series-1, Chipsona Series-3, Frysona.</div>
         </div>
 
         <div class="tile">
-          <h3>Packing & Dispatch</h3>
-          <p>
-            10 kg / 25 kg / 50 kg bag options • Local tempo & truck logistics • Outstation transport support.
-          </p>
+          <h3>Packing &amp; Dispatch</h3>
+          <p>10 kg / 25 kg / 50 kg bag options • Local tempo &amp; truck logistics • Outstation transport support.</p>
           <div class="divider"></div>
-          <div class="small">
-           
-          </div>
+          <div class="small">Dispatch timelines depend on location and load availability.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- INVENTORY -->
+
   <section id="inventory" class="section">
     <div class="container">
       <h2>Inventory <span class="lab-badge">Lab Tested</span></h2>
@@ -996,8 +1118,8 @@
             <b style="color:var(--text)"> ChipGrade Potato * Direct from Farmland * Perfect for Chips.</b><br/>
             <strong>Address:</strong> Krishna Colony Th: Bisauli Dist: Badaun Village : Hatsa,
             Pin: 243720 <br/>
-            <strong>Phone:</strong> +91-9510683160 | +91-8487090212| +9099381880 <br/>
-            <strong>Email:</strong>  salesnityaenterprises@gmail.com
+            <strong>Phone:</strong> <a href="tel:+919510683160">+91-9510683160</a> | <a href="tel:+918487090212">+91-8487090212</a>| <a href="tel:+919099381880">+9099381880</a> <br/>
+            <strong>Email:</strong>  <a href="mailto:salesnityaenterprises@gmail.com">salesnityaenterprises@gmail.com</a>
           </p>
 
           <div class="divider"></div>
@@ -1072,9 +1194,7 @@
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
         <div>© <span id="yr"></span> Nitya Enterprises. All rights reserved.</div>
         <div class="small"> </div>
-        <div class="small" style="margin-top:10px; max-width:520px;">
- 
-</div>
+        <div class="small" style="margin-top:10px; max-width:520px;">Payment terms: Advance / as agreed. Dispatch after confirmation. Quality as per mutually agreed grade/parameters.</div>
       </div>
     </div>
   </footer>
@@ -1082,43 +1202,6 @@
   <script>
     // Update year
     document.getElementById("yr").textContent = new Date().getFullYear();
-
-    // Gallery upload preview
-    const upload = document.getElementById("imgUpload");
-    const gallery = document.getElementById("gallery");
-
-    upload.addEventListener("change", (e) => {
-      const files = Array.from(e.target.files || []);
-      if(!files.length) return;
-
-      // Clear placeholders
-      gallery.innerHTML = "";
-
-      files.slice(0, 12).forEach(file => {
-        const box = document.createElement("div");
-        box.className = "imgbox";
-
-        const img = document.createElement("img");
-        img.alt = file.name;
-
-        const reader = new FileReader();
-        reader.onload = () => { img.src = reader.result; };
-        reader.readAsDataURL(file);
-
-        box.appendChild(img);
-        gallery.appendChild(box);
-      });
-    });
-
-    function clearGallery(){
-      upload.value = "";
-      gallery.innerHTML = `
-        <div class="imgbox"><div class="placeholder">Fresh Potato<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Graded Potato<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Packing Bags<br/>Upload an image</div></div>
-        <div class="imgbox"><div class="placeholder">Dispatch Truck<br/>Upload an image</div></div>
-      `;
-    }
 
     // WhatsApp send
     function sendWhatsApp(event){
@@ -1225,12 +1308,7 @@ Requirement: ${req}`;
   }
 
   // If user clicks arrows or image, pause autoplay (toggle)
-  window.toggleAutoByClick = function(){
-    if(!images.length) return;
-    if(autoTimer){
-      pausedByClick = true;
-    }
-  };
+  
 
   function setPausedByClick(state){
     pausedByClick = state;
@@ -1328,7 +1406,9 @@ function printSection(sectionId){
       ${tableWrap ? tableWrap.innerHTML : el.innerHTML}
       <div class="note">Generated from Nitya Enterprises website lab parameters section.</div>
       <script>window.onload = () => { window.print(); window.close(); }<\/script>
-    </body>
+      </main>
+
+</body>
   </html>`;
   const w = window.open("", "_blank");
   w.document.open();
