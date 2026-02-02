@@ -330,10 +330,8 @@
 #other-services small{
   color: #1D119A;
 }
+}
 
-
-
-  
 /* === ABOUT US: background image (transparent) + brand-purple overlay + subtle parallax === */
 #about.about-us-bg{
   position: relative;
@@ -750,6 +748,29 @@
   border-radius:12px;
   z-index:9999;
   border:2px solid rgba(0,0,0,0.15);
+}
+
+
+
+/* ===== Background image fallbacks (for browsers that don't support image-set) ===== */
+.hero::before,
+#inventory::before,
+#contact::before,
+#about.about-us-bg::before{
+  background-image: var(--bg-fallback, none);
+}
+.hero{ --bg-fallback: url("products/images/Potato farm_hd_2400.png"); }
+#inventory{ --bg-fallback: url("products/images/Potato farm_hd_2400.png"); }
+#contact{ --bg-fallback: url("products/images/contact%20us.png"); }
+#about.about-us-bg{ --bg-fallback: url("products/images/Potato%20farm_hd_2400.png"); }
+
+/* Ensure section content sits above the background layers */
+.hero > .container,
+#inventory > .container,
+#contact > .container,
+#about.about-us-bg > .container{
+  position: relative;
+  z-index: 2;
 }
 
 </style>
